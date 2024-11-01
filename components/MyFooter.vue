@@ -8,6 +8,7 @@ const state3 = [60, 20, 40, 40, 60, 20];
 onMounted(() => {
   let selected = 1;
   let timing = 1500;
+  let delay = 250;
 
   const animation = (selectedState: number[], nextState: number) => {
     for (let i = 0; i < 6; i++) {
@@ -15,13 +16,13 @@ onMounted(() => {
         targets: `.footer__main-deco${i + 1}`,
         width: `${selectedState[i]}px`,
         duration: timing,
-        easing: 'easeInBounce',
+        easing: "easeOutBounce",
       });
     }
     setTimeout(() => {
       selected = nextState;
       animationSwitch();
-    }, timing);
+    }, timing + delay);
   };
   let animationSwitch = () => {
     switch (selected) {
