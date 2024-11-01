@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import anime from "animejs";
 
-const state1 = [10, 50, 30, 30, 50, 60];
+const state1 = [20, 40, 30, 30, 50, 60];
 const state2 = [30, 60, 30, 20, 40, 50];
 const state3 = [90, 20, 30, 40, 20, 30];
 
@@ -130,10 +130,10 @@ onMounted(() => {
       display: block;
       border: 1px solid #fff;
       &:nth-child(1) {
-        width: rem(10);
+        width: rem(20);
       }
       &:nth-child(2) {
-        width: rem(50);
+        width: rem(40);
       }
       &:nth-child(3) {
         width: rem(30);
