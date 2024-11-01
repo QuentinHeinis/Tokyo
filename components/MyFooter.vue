@@ -1,12 +1,17 @@
 <script lang="ts" setup>
 import anime from "animejs";
 
-const state1 = [20, 80, 60, 20, 40, 60];
-// fait une state 2 ou les valeurs gardent le meme total mais les valeurs sont differentes
-const state2 = [70, 60, 20, 20, 50, 60];
-const state3 = [60, 20, 40, 40, 60, 20];
+const state1 = [10, 50, 30, 30, 50, 60];
+const state2 = [30, 60, 30, 20, 40, 50];
+const state3 = [90, 20, 30, 40, 20, 30];
+
+const total = state1.reduce((acc, curr) => acc + curr, 0);
+const total2 = state2.reduce((acc, curr) => acc + curr, 0);
+const total3 = state3.reduce((acc, curr) => acc + curr, 0);
+console.log(total, total2, total3);
+
 onMounted(() => {
-  let selected = 1;
+  let selected = 2;
   let timing = 1500;
   let delay = 250;
 
@@ -111,10 +116,12 @@ onMounted(() => {
     }
   }
   &__main {
+    width: 120%;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: rem(36);
+    word-break: none;
     text-transform: uppercase;
     font-weight: 900;
     span {
@@ -123,19 +130,19 @@ onMounted(() => {
       display: block;
       border: 1px solid #fff;
       &:nth-child(1) {
-        width: rem(20);
+        width: rem(10);
       }
       &:nth-child(2) {
-        width: rem(80);
+        width: rem(50);
       }
       &:nth-child(3) {
-        width: rem(60);
+        width: rem(30);
       }
       &:nth-child(4) {
-        width: rem(20);
+        width: rem(30);
       }
       &:nth-child(5) {
-        width: rem(40);
+        width: rem(50);
       }
       &:nth-child(6) {
         width: rem(60);
