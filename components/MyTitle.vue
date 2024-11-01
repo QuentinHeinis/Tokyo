@@ -28,7 +28,5 @@ h1 {
       width: 25px;
     }
   }
-  .third {
-  }
 }
 </style>

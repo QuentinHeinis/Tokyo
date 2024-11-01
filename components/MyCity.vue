@@ -19,6 +19,10 @@ onMounted(() => {
       borderWidth: "8px",
       size: "0%",
     },
+    {
+      borderWidth: "25px",
+      size: "75%",
+    },
   ];
 
   let circle2 = [
@@ -76,6 +80,12 @@ onMounted(() => {
     "--borderwidth": circle1[3].borderWidth,
     duration: 1,
     delay: 1.6,
+  });
+  gsap.to(".circles__effect.-e1", {
+    "--effectsize": circle1[4].size,
+    "--borderwidth": circle1[4].borderWidth,
+    duration: 1,
+    delay: 2.6,
   });
 
   // gsap.to(circle1, {

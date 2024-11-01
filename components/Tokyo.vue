@@ -15,7 +15,6 @@ onMounted(() => {
 
   gsap.set(".tokyo #o2", { scale: 0, transformOrigin: "50% 50%" });
 
-  gsap.set(".reflect", { translateX: "100px" });
 
   gsap.set(".tokyo", { opacity: 1 });
   // animate the first o
@@ -96,19 +95,7 @@ onMounted(() => {
     ease: "elastic.out(1, 0.4)",
   });
 
-  // // animate the reflection
-  gsap.to(".reflect", {
-    left: "-150px",
-    right: "unset",
-    duration: 1.2,
-    delay: 4.2,
-    ease: "power1.inOut(1.7)",
-  });
-  gsap.to(".reflect", {
-    opacity: 0,
-    duration: 0,
-    delay: 5.4,
-  });
+
 });
 </script>
 
@@ -200,7 +187,6 @@ onMounted(() => {
         />
       </g>
     </svg>
-    <span class="reflect"></span>
   </header>
 </template>
 
@@ -214,26 +200,5 @@ onMounted(() => {
   height: auto;
   overflow: hidden;
   opacity: 0;
-}
-.reflect {
-  display: block;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 50px;
-  height: 100%;
-  background: linear-gradient(
-    to right,
-    rgb(255, 255, 255),
-    rgba(255, 255, 255, 0.26) 50%,
-    rgb(248, 248, 248)
-  );
-  mask-image: url(p9.png);
-  mask-size: cover;
-  mask-repeat: no-repeat;
-  mask-position: center;
-  rotate: 190deg;
-  scale: 3 1.2;
-  mix-blend-mode: screen;
 }
 </style>

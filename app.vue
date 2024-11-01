@@ -4,6 +4,7 @@
     <MyTitle />
     <MyCity />
     <MyFooter />
+    <MyBanner />
   </div>
 </template>
 <style lang="scss">
@@ -12,5 +13,6 @@
   max-height: 100vh;
   margin: 0 auto;
   overflow: hidden;
+  position: relative;
 }
 </style>

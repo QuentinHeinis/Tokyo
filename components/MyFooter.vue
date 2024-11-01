@@ -1,16 +1,11 @@
 <script lang="ts" setup>
 import anime from "animejs";
 
-const state1 = [20, 40, 30, 30, 50, 60];
-const state2 = [30, 60, 30, 20, 40, 50];
-const state3 = [90, 20, 30, 40, 20, 30];
+const resizeTiles = () => {
+  const state1 = [20, 40, 30, 30, 50, 60];
+  const state2 = [30, 60, 30, 20, 40, 50];
+  const state3 = [90, 20, 30, 40, 20, 30];
 
-const total = state1.reduce((acc, curr) => acc + curr, 0);
-const total2 = state2.reduce((acc, curr) => acc + curr, 0);
-const total3 = state3.reduce((acc, curr) => acc + curr, 0);
-console.log(total, total2, total3);
-
-onMounted(() => {
   let selected = 2;
   let timing = 1500;
   let delay = 250;
@@ -48,6 +43,61 @@ onMounted(() => {
     }
   };
   animationSwitch();
+};
+const squareToCircle = () => {
+  anime({
+    targets: ".squareCircle",
+    borderRadius: ["10px", "50%"],
+    duration: 750,
+    loop: true,
+    endDelay: 1000,
+    delay: 1000,
+    direction: "alternate",
+  });
+  anime({
+    targets: ".lines .l1",
+    translateX: ["-2px", "2px"],
+    translateY: ["-2px", "2px"],
+    duration: 750,
+    loop: true,
+    endDelay: 1000,
+    delay: 1000,
+    direction: "alternate",
+  });
+  anime({
+    targets: ".lines .l2",
+    translateX: ["2px", "-2px"],
+    translateY: ["-2px", "2px"],
+    duration: 750,
+    loop: true,
+    endDelay: 1000,
+    delay: 1000,
+    direction: "alternate",
+  });
+  anime({
+    targets: ".lines .l3",
+    translateX: ["2px", "-2px"],
+    translateY: ["2px", "-2px"],
+    duration: 750,
+    loop: true,
+    endDelay: 1000,
+    delay: 1000,
+    direction: "alternate",
+  });
+  anime({
+    targets: ".lines .l4",
+    translateX: ["-2px", "2px"],
+    translateY: ["2px", "-2px"],
+    duration: 750,
+    loop: true,
+    endDelay: 1000,
+    delay: 1000,
+    direction: "alternate",
+  });
+};
+onMounted(() => {
+  resizeTiles();
+  squareToCircle();
 });
 </script>
 
@@ -70,8 +120,61 @@ onMounted(() => {
     </div>
     <div class="footer__item footer__date">
       <div class="flex">
-        <span></span>
-        <span></span>
+        <span class="squareCircle">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 22 22"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="lines"
+          >
+            <path
+              class="l1"
+              d="M1 1L11 11"
+              stroke="#d12f2d"
+              stroke-width="2px"
+            />
+            <path
+              class="l2"
+              d="M21 1L11 11"
+              stroke="#d12f2d"
+              stroke-width="2px"
+            />
+            <path
+              class="l3"
+              d="M21 21L11 11"
+              stroke="#d12f2d"
+              stroke-width="2px"
+            />
+            <path
+              class="l4"
+              d="M11 11L1 21"
+              stroke="#d12f2d"
+              stroke-width="2px"
+            />
+          </svg>
+        </span>
+        <span class="squareCircle -s2">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 22 22"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="lines"
+          >
+            <path class="l1" d="M1 1L11 11" stroke="#fff" stroke-width="2px" />
+            <path class="l2" d="M21 1L11 11" stroke="#fff" stroke-width="2px" />
+            <path
+              class="l3"
+              d="M21 21L11 11"
+              stroke="#fff"
+              stroke-width="2px"
+            />
+            <path class="l4" d="M11 11L1 21" stroke="#fff" stroke-width="2px" />
+          </svg>
+        </span>
       </div>
       01-11-2024
     </div>
@@ -91,9 +194,14 @@ onMounted(() => {
   }
   &__me {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     flex-direction: column;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+    font-size: rem(12);
     a {
+      font-weight: 400;
       color: inherit;
       text-decoration: none;
     }
@@ -104,15 +212,29 @@ onMounted(() => {
   }
   &__date {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     flex-direction: column;
     align-items: flex-end;
-
-    span {
+    line-height: 1;
+    font-size: rem(12);
+    .squareCircle {
+      margin-bottom: rem(8);
       height: rem(40);
       width: rem(40);
       display: block;
-      background: red;
+      background: white;
+      border-radius: 10px;
+      position: relative;
+      .lines {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      &.-s2 {
+        background: transparent;
+        border: 2px solid #fff;
+      }
     }
   }
   &__main {
@@ -120,6 +242,7 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     font-size: rem(36);
     word-break: none;
     text-transform: uppercase;
