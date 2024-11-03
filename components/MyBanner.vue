@@ -51,7 +51,7 @@ onMounted(() => {
 .banner {
   width: 60px;
   height: 300px;
-  top: 40%;
+  top: 45%;
   right: 20px;
   position: absolute;
   border-radius: 40px;

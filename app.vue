@@ -1,7 +1,11 @@
 <template>
   <div class="wrapper">
     <Tokyo />
-    <MyTitle />
+    <div class="myText">
+      <MyTitle />
+      <MySubTitle />
+      <MyText />
+    </div>
     <MyCity />
     <MyFooter />
     <MyBanner />
@@ -13,5 +17,9 @@
   margin: 0 auto;
   overflow: hidden;
   position: relative;
+  .myText {
+    position: absolute;
+    width: 100%;
+  }
 }
 </style>
