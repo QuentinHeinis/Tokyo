@@ -2,9 +2,18 @@
 import anime from "animejs";
 import gsap from "gsap";
 const banner = ref<HTMLElement | null>();
+const text = ref();
+const splittext = (element) => {
+  let newElement = element.value.innerText.split("").map((char, index) => {
+    if (char === " ") return `<br>`;
+    return `<span class="letter">${char}</span>`;
+  });
+  element.value.innerHTML = newElement.join("");
+};
 onMounted(() => {
   //init state
-
+  splittext(text);
+  gsap.set(".banner .letter", { translateY: "300px", rotate: 180 });
   gsap.to(".banner", { opacity: 1, delay: 1.5 });
 
   anime({
@@ -19,12 +28,32 @@ onMounted(() => {
       banner.value?.classList.add("active");
     },
   });
+
+  gsap.to(".banner .letter", {
+    translateY: 0,
+    rotate: 0,
+    stagger: 0.03,
+    duration: 0.75,
+    ease: "elastic.out(1,0.75)",
+    delay: 3.5,
+  });
+
+  gsap.to(".banner p", {
+    color: "#0e7700",
+    duration: 0.5,
+    ease: "elastic.out(1,0.75)",
+    delay: 4.6,
+  });
+
   anime({
     targets: ".border::after",
     top: "0",
     easing: "easeInOutSine",
     duration: 1500,
     delay: 3000,
+    onComplete: function () {
+      banner.value?.classList.add("active");
+    },
   });
 });
 </script>
@@ -49,6 +78,7 @@ onMounted(() => {
         stroke-width="2"
       />
     </svg>
+    <p ref="text">東京の幽霊・</p>
   </div>
 </template>
 
@@ -107,6 +137,20 @@ onMounted(() => {
     top: 0;
     right: 0;
     z-index: 1;
+  }
+  p {
+    color: #fff;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2;
+    font-weight: 900;
+    font-size: rem(36);
+    line-height: 1.2;
+    text-align: center;
+    margin-top: rem(20);
   }
 }
 </style>
