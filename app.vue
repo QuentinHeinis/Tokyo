@@ -3,6 +3,7 @@ useHead({
   title: "Tokyo - Quentin Heinis",
   htmlAttrs: {
     lang: "en",
+    translate: "no",
   },
   link: [
     {
@@ -12,6 +13,7 @@ useHead({
     },
   ],
   meta: [
+    { name: "google", content: "notranslate" },
     {
       name: "description",
       content:
