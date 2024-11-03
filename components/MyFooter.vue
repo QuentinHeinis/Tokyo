@@ -173,7 +173,7 @@ onMounted(() => {
     <div class="footer__wrapper">
       <div class="footer__item footer__me">
         dev by
-        <NuxtLink to="https://www.heinis.dev" external>Quentin Heinis</NuxtLink>
+        <NuxtLink to="https://www.heinis.dev" target="_blank" external>Quentin Heinis</NuxtLink>
       </div>
       <div class="footer__item footer__main">
         <p ref="text">Tokyo - Japan</p>
