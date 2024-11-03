@@ -281,6 +281,8 @@ onMounted(() => {
   color: #fff;
   display: flex;
   align-items: flex-end;
+  position: relative;
+  z-index: 1;
 
   &__wrapper {
     width: 100%;

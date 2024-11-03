@@ -69,6 +69,22 @@ useHead({
   margin: 0 auto;
   overflow: hidden;
   position: relative;
+  background: #fff;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("/grain.gif");
+    mix-blend-mode: overlay;
+    opacity: 0.3;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    z-index: 50;
+  }
   .myText {
     position: relative;
     width: 100%;

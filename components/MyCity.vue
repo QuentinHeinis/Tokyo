@@ -167,7 +167,7 @@ onMounted(() => {
 <style lang="scss" scoped>
 .city {
   position: relative;
-  z-index: -1;
+  z-index: 0;
   opacity: 0;
 
 }
