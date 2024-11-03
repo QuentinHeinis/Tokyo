@@ -39,7 +39,7 @@ onMounted(() => {
   });
 
   gsap.to(".banner p", {
-    color: "#0e7700",
+    color: "#d12f2d",
     duration: 0.5,
     ease: "elastic.out(1,0.75)",
     delay: 4.6,
