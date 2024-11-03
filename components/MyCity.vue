@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import gsap from "gsap";
 const svg = ref();
-const showMainCircle = () => {};
 const animateCircle = () => {
   let circle1 = [
     {
@@ -115,7 +114,7 @@ const revealMountains = () => {
   gsap.to(".reveal", {
     opacity: 0,
     duration: 0.075,
-    stagger: { amount: 1, from: "random" },
+    stagger: { amount: 1, from: "random", axis: "x" },
     delay: 1,
   });
 };

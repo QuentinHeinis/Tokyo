@@ -1,14 +1,19 @@
 <script lang="ts" setup>
 import anime from "animejs";
+import gsap from "gsap";
 const banner = ref<HTMLElement | null>();
 onMounted(() => {
+  //init state
+
+  gsap.to(".banner", { opacity: 1, delay: 1.5 });
+
   anime({
     targets: ".border rect",
     strokeDashoffset: [anime.setDashoffset, 0],
     easing: "easeInOutSine",
     duration: 1500,
     delay: function (el, i) {
-      return i * 250;
+      return i * 250 + 1500;
     },
     complete: function () {
       banner.value?.classList.add("active");
@@ -19,7 +24,7 @@ onMounted(() => {
     top: "0",
     easing: "easeInOutSine",
     duration: 1500,
-    delay: 1500,
+    delay: 3000,
   });
 });
 </script>
@@ -49,9 +54,10 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .banner {
+  opacity: 0;
   width: 60px;
   height: 300px;
-  top: 45%;
+  top: 35%;
   right: 20px;
   position: absolute;
   border-radius: 40px;
