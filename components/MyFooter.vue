@@ -171,6 +171,13 @@ onMounted(() => {
 <template>
   <footer class="footer">
     <div class="footer__wrapper">
+      <NuxtLink
+        to="https://www.heinis.dev"
+        target="_blank"
+        external
+        class="footer__mobile-me"
+        >Quentin Heinis</NuxtLink
+      >
       <div class="footer__item footer__me">
         dev by
         <NuxtLink to="https://www.heinis.dev" target="_blank" external
@@ -301,6 +308,19 @@ onMounted(() => {
       text-decoration: none;
     }
   }
+  &__mobile-me {
+    text-transform: uppercase;
+    line-height: 1;
+    z-index: 5;
+    font-size: rem(12);
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    margin-top: rem(10);
+    font-weight: 400;
+    color: inherit;
+    text-decoration: none;
+  }
   .flex {
     display: flex;
     gap: 10px;
@@ -377,6 +397,9 @@ onMounted(() => {
   }
 
   @media screen and (min-width: 610px) {
+    &__mobile-me {
+      display: none;
+    }
     &__wrapper {
       padding-inline: rem(24);
     }
