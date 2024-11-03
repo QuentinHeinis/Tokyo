@@ -52,23 +52,38 @@ h1 {
   text-transform: uppercase;
   display: flex;
   width: 100%;
+  flex-direction: column;
   padding-inline: rem(24);
   position: relative;
+  font-size: rem(24);
+
   .splitter {
     display: block;
     width: 25px;
   }
   .first {
-    margin-right: 100px;
     display: flex;
   }
   .second {
     color: #d12f2d;
     display: flex;
     width: 100%;
+    max-width: 350px;
+    justify-content: flex-end;
   }
   .third {
     display: flex;
+  }
+  @media screen and (min-width: 610px) {
+    flex-direction: row;
+    font-size: rem(32);
+    .first {
+      margin-right: 100px;
+    }
+    .second {
+      max-width: unset;
+      justify-content: unset;
+    }
   }
 }
 </style>

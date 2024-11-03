@@ -169,6 +169,7 @@ onMounted(() => {
   position: relative;
   z-index: -1;
   opacity: 0;
+
 }
 .circles {
   --size: 250px;

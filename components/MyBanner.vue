@@ -92,6 +92,10 @@ onMounted(() => {
   position: absolute;
   border-radius: 40px;
   overflow: hidden;
+  scale: 0.7;
+  @media screen and (min-width: 610px) {
+    scale: 1;
+  }
   &::after {
     content: "";
     position: absolute;

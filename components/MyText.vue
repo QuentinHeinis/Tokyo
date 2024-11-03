@@ -131,10 +131,7 @@ onMounted(() => {
     }
   }
   .text2 {
-    position: absolute;
-    top: 0;
-    translate: 0 -54px;
-    left: 67%;
+    margin-top: rem(10);
     h3 {
       font-size: rem(16);
       font-weight: 700;
@@ -145,6 +142,14 @@ onMounted(() => {
     }
     p {
       max-width: 100px;
+    }
+
+    @media screen and (min-width: 400px) {
+      margin-top: unset;
+      position: absolute;
+      top: 0;
+      translate: 0 -54px;
+      left: 67%;
     }
   }
 }

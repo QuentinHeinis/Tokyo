@@ -70,8 +70,11 @@ useHead({
   overflow: hidden;
   position: relative;
   .myText {
-    position: absolute;
+    position: relative;
     width: 100%;
+    @media screen and (min-width: 610px) {
+      position: absolute;
+    }
   }
 }
 </style>

@@ -173,7 +173,9 @@ onMounted(() => {
     <div class="footer__wrapper">
       <div class="footer__item footer__me">
         dev by
-        <NuxtLink to="https://www.heinis.dev" target="_blank" external>Quentin Heinis</NuxtLink>
+        <NuxtLink to="https://www.heinis.dev" target="_blank" external
+          >Quentin Heinis</NuxtLink
+        >
       </div>
       <div class="footer__item footer__main">
         <p ref="text">Tokyo - Japan</p>
@@ -278,7 +280,7 @@ onMounted(() => {
     display: flex;
     overflow: hidden;
     background-color: #d12f2d;
-    padding-inline: rem(24);
+
     justify-content: space-between;
     height: 0px;
   }
@@ -286,13 +288,13 @@ onMounted(() => {
     width: 100%;
   }
   &__me {
-    display: flex;
     justify-content: center;
     flex-direction: column;
     font-weight: 700;
     text-transform: uppercase;
     line-height: 1;
     font-size: rem(12);
+    display: none;
     a {
       font-weight: 400;
       color: inherit;
@@ -304,7 +306,7 @@ onMounted(() => {
     gap: 10px;
   }
   &__date {
-    display: flex;
+    display: none;
     justify-content: center;
     flex-direction: column;
     align-items: flex-end;
@@ -371,6 +373,18 @@ onMounted(() => {
         display: block;
         width: fit-content;
       }
+    }
+  }
+
+  @media screen and (min-width: 610px) {
+    &__wrapper {
+      padding-inline: rem(24);
+    }
+    &__me {
+      display: flex;
+    }
+    &__date {
+      display: flex;
     }
   }
 }
