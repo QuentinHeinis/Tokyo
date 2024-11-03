@@ -50,8 +50,8 @@ const squareToCircle = () => {
     borderRadius: ["10px", "50%"],
     duration: 750,
     loop: true,
-    endDelay: 1000,
-    delay: 1000,
+    endDelay: 500,
+    delay: 500,
     direction: "alternate",
   });
   anime({
@@ -60,8 +60,8 @@ const squareToCircle = () => {
     translateY: ["-2px", "2px"],
     duration: 750,
     loop: true,
-    endDelay: 1000,
-    delay: 1000,
+    endDelay: 500,
+    delay: 500,
     direction: "alternate",
   });
   anime({
@@ -70,8 +70,8 @@ const squareToCircle = () => {
     translateY: ["-2px", "2px"],
     duration: 750,
     loop: true,
-    endDelay: 1000,
-    delay: 1000,
+    endDelay: 500,
+    delay: 500,
     direction: "alternate",
   });
   anime({
@@ -80,8 +80,8 @@ const squareToCircle = () => {
     translateY: ["2px", "-2px"],
     duration: 750,
     loop: true,
-    endDelay: 1000,
-    delay: 1000,
+    endDelay: 500,
+    delay: 500,
     direction: "alternate",
   });
   anime({
@@ -90,8 +90,8 @@ const squareToCircle = () => {
     translateY: ["2px", "-2px"],
     duration: 750,
     loop: true,
-    endDelay: 1000,
-    delay: 1000,
+    endDelay: 500,
+    delay: 500,
     direction: "alternate",
   });
 };
