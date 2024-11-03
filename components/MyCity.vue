@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 import gsap from "gsap";
-
-onMounted(() => {
+const svg = ref();
+const showMainCircle = () => {};
+const animateCircle = () => {
   let circle1 = [
     {
       borderWidth: "40px",
@@ -87,13 +88,58 @@ onMounted(() => {
     duration: 1,
     delay: 2.6,
   });
+};
+const generateRectangles = () => {
+  let svgWidth = svg.value.getBoundingClientRect().width;
+  let svgHeight = svg.value.getBoundingClientRect().height;
+  let rectWidth = 20;
+  let rectHeight = 20;
+  let rows = svgHeight / rectHeight;
+  let columns = svgWidth / rectWidth;
+  let rects = [];
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < columns; j++) {
+      rects.push(
+        `<rect class="reveal" x="${j * rectWidth}" y="${
+          i * rectHeight
+        }" width="${rectWidth}" height="${rectHeight}" fill="white" />`
+      );
+    }
+  }
+  svg.value.innerHTML = rects.join("");
+};
+const revealMountains = () => {
+  generateRectangles();
+  gsap.set(".city", { opacity: 1 });
 
-  // gsap.to(circle1, {
-  //   duration: 1,
-  //   cssRule: {
-  //     borderWidth: "5px",
-  //   },
-  // });
+  gsap.to(".reveal", {
+    opacity: 0,
+    duration: 0.075,
+    stagger: { amount: 1, from: "random" },
+    delay: 1,
+  });
+};
+onMounted(() => {
+  revealMountains();
+  gsap.to("svg .reveal", {
+    opacity: 0,
+    delay: 2,
+  });
+
+  setTimeout(() => {
+    gsap.to(".circles__main", {
+      translateX: "-50%",
+      duration: 0,
+    });
+    gsap.to(".circles__main", {
+      scale: 1,
+    });
+  }, 2000);
+  setTimeout(() => {
+    animateCircle();
+  }, 2300);
+
+  // animateCircle();
 });
 </script>
 
@@ -108,6 +154,13 @@ onMounted(() => {
       <img src="/tokyo.png" alt="" />
       <div class="fog"></div>
       <div class="fog2"></div>
+      <svg
+        width="100%"
+        height="100%"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        ref="svg"
+      ></svg>
     </div>
   </div>
 </template>
@@ -115,18 +168,23 @@ onMounted(() => {
 <style lang="scss" scoped>
 .city {
   position: relative;
+  z-index: -1;
+  opacity: 0;
 }
 .circles {
   --size: 250px;
   &__main {
     width: var(--size);
     height: var(--size);
+
     background-color: #d12f2d;
     border-radius: 50%;
     position: absolute;
     top: 10%;
     left: 50%;
     transform: translateX(-50%);
+
+    scale: 0;
   }
   &__effect {
     width: var(--size);
@@ -168,6 +226,7 @@ onMounted(() => {
 }
 .img {
   position: relative;
+
   width: 100%;
   height: auto;
   overflow: hidden;
@@ -189,6 +248,14 @@ onMounted(() => {
     background-repeat: repeat-x;
     opacity: 0.5;
     animation: fog 80s linear infinite;
+  }
+  svg {
+    /*   width: 100%;
+  height: 100%; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   @keyframes fog {
     0% {

@@ -34,7 +34,7 @@ onMounted(() => {
           "M111.5 9.06723V121H217.5V9.06723H170.052V1H157.938V9.06723H111.5ZM148.796 45.5H181.676V84H148.796V45.5Z",
       },
     ],
-    duration: 2500,
+    duration: 2000,
     easing: "easeInOutQuad",
   });
 
@@ -42,19 +42,19 @@ onMounted(() => {
   gsap.to(".tokyo #t .first", {
     scaleX: 1,
     duration: 0.5,
-    delay: 2,
+    delay: 1.5,
     ease: "power1.inOut(1.7)",
   });
   gsap.to(".tokyo #t .second", {
     scaleY: 1,
     duration: 0.5,
-    delay: 2.2,
+    delay: 1.7,
     ease: "power1.inOut(1.7)",
   });
   gsap.to(".tokyo #t .third", {
     scaleX: 1,
     duration: 0.5,
-    delay: 2.4,
+    delay: 1.9,
     ease: "power1.inOut(1.7)",
   });
 
@@ -62,13 +62,13 @@ onMounted(() => {
   gsap.to(".tokyo #k .first", {
     scaleX: 1,
     duration: 0.5,
-    delay: 2.6,
+    delay: 2.1,
     ease: "power1.inOut(1.7)",
   });
   gsap.to(".tokyo #k .second", {
     scaleY: 1,
     duration: 0.5,
-    delay: 2.8,
+    delay: 2.3,
     ease: "power1.inOut(1.7)",
   });
 
@@ -77,13 +77,13 @@ onMounted(() => {
     translateX: 0,
     opacity: 1,
     duration: 0.5,
-    delay: 3,
+    delay: 2.5,
     ease: "power1.inOut(1.7)",
   });
   gsap.to(".tokyo #y .second", {
     opacity: 1,
     duration: 0.5,
-    delay: 3.3,
+    delay: 2.7,
     ease: "power1.inOut(1.7)",
   });
 
@@ -91,7 +91,7 @@ onMounted(() => {
   gsap.to(".tokyo #o2", {
     scale: 1,
     duration: 0.5,
-    delay: 3.5,
+    delay: 3,
     ease: "elastic.out(1, 0.4)",
   });
 
